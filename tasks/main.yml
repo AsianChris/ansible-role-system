@@ -1,0 +1,6 @@
+---
+- name: Update and then safe upgrade installed packages
+  apt:
+    update_cache=yes
+    upgrade=yes
+  sudo: yes
