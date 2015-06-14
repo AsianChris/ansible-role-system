@@ -4,3 +4,11 @@
     update_cache=yes
     upgrade=yes
   sudo: yes
+
+- name: Install Common Packages
+  apt: pkg={{ item }} state=present
+  sudo: yes
+  with_items:
+    - curl
+    - htop
+    - vim
