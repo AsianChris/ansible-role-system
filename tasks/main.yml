@@ -3,11 +3,13 @@
   apt:
     update_cache=yes
     upgrade=yes
-  sudo: yes
+  become: yes
+  become_method: sudo
 
 - name: Install Common Packages
   apt: pkg={{ item }} state=present
-  sudo: yes
+  become: yes
+  become_method: sudo
   with_items:
     - curl
     - htop
