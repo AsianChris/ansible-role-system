@@ -1,0 +1,9 @@
+---
+- name: Update and then safe upgrade installed packages (yum)
+  yum:
+    update_cache: yes
+    name: '*'
+    state: latest
+    exclude: kernel*
+  become: yes
+  become_method: sudo

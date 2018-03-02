@@ -1,16 +1,17 @@
 ---
-- name: Update and then safe upgrade installed packages
-  apt:
-    update_cache=yes
-    upgrade=yes
-  become: yes
-  become_method: sudo
+- name: Update Debian based systems
+  include_tasks: debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: Update Redhat based ystems
+  include_tasks: redhat.yml
+  when: ansible_os_family == "RedHat"
 
 - name: Install Common Packages
-  apt: pkg={{ item }} state=present
+  package: 
+    name: "{{ item }}"
+    state: present
   become: yes
   become_method: sudo
   with_items:
-    - curl
-    - htop
     - vim
