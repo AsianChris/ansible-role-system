@@ -2,6 +2,7 @@
 galaxy_info:
   author: Chris Baptista
   description: Update System
+  role_name: system
   license: license (BSD)
   min_ansible_version: 2.4
   platforms:
@@ -12,5 +13,5 @@ galaxy_info:
   - name: Centos
     versions:
     - 7
-  categories:
+  galaxy_tags:
   - system
